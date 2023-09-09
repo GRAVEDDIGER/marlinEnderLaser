@@ -24,7 +24,7 @@
 #define EXTRUDER_ENABLE_PIN -1
 
 // Habilitar el soporte para el láser
-#define SPINDLE_LASER_ENA_PIN E0_STEP_PIN
+//#define SPINDLE_LASER_ENA_PIN E0_STEP_PIN
 
 #define CONFIG_EXAMPLES_DIR "config/examples/Creality/Ender-3 Pro/CrealityV422"
 
@@ -3326,7 +3326,7 @@
  * See https://marlinfw.org/docs/configuration/2.0.9/laser_spindle.html for more config details.
  */
 //#define SPINDLE_FEATURE
-#define LASER_FEATURE
+//#define LASER_FEATURE
 #if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
@@ -3496,7 +3496,7 @@
  *
  * NOTE: This option sacrifices some cooling fan speed options.
  */
-//#define LASER_SYNCHRONOUS_M106_M107
+#define LASER_SYNCHRONOUS_M106_M107
 
 /**
  * Coolant Control
