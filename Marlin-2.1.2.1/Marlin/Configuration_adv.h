@@ -20,11 +20,6 @@
  *
  */
 #pragma once
-// Deshabilitar el soporte para el extrusor
-#define EXTRUDER_ENABLE_PIN -1
-
-// Habilitar el soporte para el láser
-//#define SPINDLE_LASER_ENA_PIN E0_STEP_PIN
 
 #define CONFIG_EXAMPLES_DIR "config/examples/Creality/Ender-3 Pro/CrealityV422"
 
@@ -1437,7 +1432,7 @@
 
 #if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
   // The timeout to return to the status screen from sub-menus
-  #define LCD_TIMEOUT_TO_STATUS 15000   // (ms)
+  //#define LCD_TIMEOUT_TO_STATUS 15000   // (ms)
 
   #if ENABLED(SHOW_BOOTSCREEN)
     #define BOOTSCREEN_TIMEOUT 4000       // (ms) Total Duration to display the boot screen(s)
@@ -3330,7 +3325,7 @@
 #if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
-  #define SPINDLE_LASER_USE_PWM  E0_STEP_PIN              // Enable if your controller supports setting the speed/power
+  #define SPINDLE_LASER_USE_PWM PA0               // Enable if your controller supports setting the speed/power
   #if ENABLED(SPINDLE_LASER_USE_PWM)
     #define SPINDLE_LASER_PWM_INVERT    false  // Set to "true" if the speed/power goes up when you want it to go slower
     #define SPINDLE_LASER_FREQUENCY     2500   // (Hz) Spindle/laser frequency (only on supported HALs: AVR, ESP32, and LPC)
@@ -3405,8 +3400,8 @@
     #if ENABLED(SPINDLE_LASER_USE_PWM)
       #define SPEED_POWER_INTERCEPT       0    // (%) 0-100 i.e., Minimum power percentage
       #define SPEED_POWER_MIN             0    // (%) 0-100
-      #define SPEED_POWER_MAX           50    // (%) 0-100
-      #define SPEED_POWER_STARTUP        30    // (%) M3/M4 speed/power default (with no arguments)
+      #define SPEED_POWER_MAX           100    // (%) 0-100
+      #define SPEED_POWER_STARTUP        80    // (%) M3/M4 speed/power default (with no arguments)
     #endif
 
     // Define the minimum and maximum test pulse time values for a laser test fire function
@@ -3449,7 +3444,7 @@
      * CUTTER_MODE_CONTINUOUS. The option allows M3 laser power to be commited without waiting
      * for a planner syncronization
      */
-    #define LASER_POWER_SYNC
+    //#define LASER_POWER_SYNC
 
     /**
      * Scale the laser's power in proportion to the movement rate.
